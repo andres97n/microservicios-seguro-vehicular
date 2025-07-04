@@ -5,7 +5,7 @@ Schema();
 export class Vehiculo extends Document {
   @Prop({
     type: String,
-    required: true,
+    required: false,
     trim: true,
     length: 7,
     unique: true,
@@ -27,14 +27,14 @@ export class Vehiculo extends Document {
   modelo: string;
 
   @Prop({
-    type: Number,
+    type: String,
     required: true,
   })
-  anio: number;
+  anio: string;
 
   @Prop({
     type: String,
-    required: true,
+    required: false,
     trim: true,
   })
   uso: string;
@@ -50,6 +50,12 @@ export class Vehiculo extends Document {
     required: true,
   })
   ciudad: string;
+
+  @Prop({
+    type: Number,
+    required: true,
+  })
+  precio: number;
   
 }
 

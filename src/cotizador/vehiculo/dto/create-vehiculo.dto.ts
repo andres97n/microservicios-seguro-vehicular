@@ -1,21 +1,21 @@
-import { IsNumber, IsPositive, IsString, Min } from 'class-validator';
+import { IsNumber, IsOptional, IsPositive, IsString, Min } from 'class-validator';
 
 export class CreateVehiculoDto {
   @IsString()
-  placa: number;
+  @IsOptional()
+  placa: string;
 
   @IsString()
-  marca: number;
+  marca: string;
 
   @IsString()
-  modelo: number;
-
-  @IsNumber()
-  @IsPositive()
-  @Min(4)
-  anio: number;
+  modelo: string;
 
   @IsString()
+  anio: string;
+
+  @IsString()
+  @IsOptional()
   uso: string;
 
   @IsString()
@@ -23,4 +23,8 @@ export class CreateVehiculoDto {
 
   @IsString()
   ciudad: string;
+
+  @IsNumber()
+  @IsPositive()
+  precio: number;
 }

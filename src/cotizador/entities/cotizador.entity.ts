@@ -1,36 +1,45 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-import { Contratante } from './contratante.entity';
-import { Vehiculo } from './vehiculo.entity';
-
 
 @Schema()
 export class Cotizador extends Document {
   @Prop({
-    type: Contratante,
+    type: Object,
     required: true,
   })
-  contratante: Contratante;
+  contratante: object;
 
   @Prop({
-    type: Vehiculo,
+    type: Object,
     required: true,
   })
-  vehiculo: Vehiculo;
+  vehiculo: object;
 
   @Prop({
-    type: Boolean,
-    default: true,
+    type: String,
+    required: false,
+    default: 'A',
+    enum: ['A', 'I'],
   })
-  estado: boolean;
+  estado: string;
 
   @Prop({
     type: Date,
-    required: true,
+    required: false,
     trim: true,
+    default: () => new Date(),
   })
   fechaCreacion: Date;
+
+  @Prop({
+    type: String,
+    required: false,
+    trim: true,
+    default: 'Libelula',
+  })
+  empCodigo: string;
+
 }
 
 export const CotizadorSchema = SchemaFactory.createForClass(Cotizador);

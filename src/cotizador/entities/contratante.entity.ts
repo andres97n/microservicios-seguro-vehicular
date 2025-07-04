@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-@Schema()
+@Schema({ versionKey: false })
 export class Contratante extends Document {
   @Prop({
     type: String,
-    required: true,
+    required: false,
     trim: true,
     minlength: 5,
   })
@@ -21,7 +21,7 @@ export class Contratante extends Document {
   
   @Prop({
     type: String,
-    required: true,
+    required: false,
     trim: true,
     minlength: 5,
   })
@@ -37,39 +37,39 @@ export class Contratante extends Document {
   @Prop({
     type: String,
     required: true,
-    enum: ['Cedula', 'Pasaporte', 'RUC'],
+    // enum: ['Cedula', 'Pasaporte', 'RUC'],
   })
-  tipoIdentificacion: string;
+  typeIdentification: string;
 
   @Prop({
     type: String,
     required: true,
     trim: true,
-    minlength: 5,
-    index: true,
-    unique: true,
+     minlength: 5,
+      index: { unique: true, sparse: true },
+    // unique: true,
   })
-  numeroIdentificacion: string;
+  identificationNumber: string;
 
   @Prop({
     type: Date,
     required: true,
   })
-  fechaNacimiento: Date;
+  birthDate: Date;
   
   @Prop({
     type: String,
     required: true,
-    enum: ['Masculino', 'Femenino']
+    // enum: ['Masculino', 'Femenino']
   })
-    genero: string
-  
+  gender: string;
+
   @Prop({
     type: String,
     required: true,
-    enum: ['Soltero', 'Casado', 'Divorciado']
+    // enum: ['Soltero', 'Casado', 'Divorciado']
   })
-  estadoCivil: string;
+  civilStatus: string;
 }
 
 export const ContratanteSchema = SchemaFactory.createForClass( Contratante ); 

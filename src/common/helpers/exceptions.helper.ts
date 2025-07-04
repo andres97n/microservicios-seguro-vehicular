@@ -2,13 +2,14 @@ import { BadRequestException, InternalServerErrorException } from "@nestjs/commo
 
 
 export const handleExceptions = (error: any) => {
+  console.log(error);
+  
   if (error.code === 11000) {
     throw new BadRequestException(
-      `Pokemon exists in db ${JSON.stringify(error.keyValue)}`,
+      `Valor ya existe en base de datos ${JSON.stringify(error.keyValue)}`,
     );
   }
-  console.log(error);
   throw new InternalServerErrorException(
-    `Can't create Pokemon - Check server logs`,
+    `No pudimos crear el registro, por favor hable con el administrador`,
   );
 };
