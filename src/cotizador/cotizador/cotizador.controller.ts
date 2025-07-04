@@ -1,14 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Param, Delete, Post, Body } from '@nestjs/common';
 import { CotizadorService } from './cotizador.service';
+import { CreateCotizadorDto } from './dto/create-cotizador.dto';
 
 @Controller('cotizador')
 export class CotizadorController {
   constructor(private readonly cotizadorService: CotizadorService) {}
 
-  // @Post()
-  // create(@Body() createCotizadorDto: CreateCotizadorDto) {
-  //   return this.cotizadorService.create(createCotizadorDto);
-  // }
+  @Post()
+  create(@Body() createCotizadorDto: CreateCotizadorDto) {
+    return this.cotizadorService.create(createCotizadorDto);
+  }
 
   @Get()
   findAll() {

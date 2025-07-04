@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv';
 
 import { ContratanteModule } from './cotizador/contratante/contratante.module';
 import { VehiculoModule } from './cotizador/vehiculo/vehiculo.module';
+import { CotizadorModule } from './cotizador/cotizador/cotizador.module';
 
 
 dotenv.config();
@@ -14,6 +15,7 @@ dotenv.config();
     
     ContratanteModule,
     VehiculoModule,
+    CotizadorModule,
   
   ],
   controllers: [],
