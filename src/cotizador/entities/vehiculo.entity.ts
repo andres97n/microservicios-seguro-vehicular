@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-Schema({ versionKey: false });
+Schema();
 export class Vehiculo extends Document {
   @Prop({
     type: String,
@@ -53,4 +53,4 @@ export class Vehiculo extends Document {
   
 }
 
-export const VehiculoSchema = SchemaFactory.createForClass(Vehiculo);
+export const VehiculoSchema = SchemaFactory.createForClass( Vehiculo );

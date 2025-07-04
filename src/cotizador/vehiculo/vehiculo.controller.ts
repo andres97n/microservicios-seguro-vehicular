@@ -8,7 +8,7 @@ export class VehiculoController {
   constructor(private readonly vehiculoService: VehiculoService) {}
 
   @Post()
-  create(@Body() createVehiculoDto: CreateVehiculoDto) {
+  create(@Body() createVehiculoDto: CreateVehiculoDto) {    
     return this.vehiculoService.create(createVehiculoDto);
   }
 

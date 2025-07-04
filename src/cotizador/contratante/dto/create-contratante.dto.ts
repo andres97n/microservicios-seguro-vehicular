@@ -3,18 +3,18 @@ import { IsDate, IsOptional, IsString } from 'class-validator';
 
 export class CreateContranteDto {
   @IsString()
-  primerNombre: number;
+  primerNombre: string;
 
   @IsString()
   @IsOptional()
-  segundoNombre?: number;
+  segundoNombre?: string;
 
   @IsString()
-  primerApellido: number;
+  primerApellido: string;
 
   @IsString()
   @IsOptional()
-  segundoApellido?: number;
+  segundoApellido?: string;
 
   @IsString()
   tipoIdentificacion: string;

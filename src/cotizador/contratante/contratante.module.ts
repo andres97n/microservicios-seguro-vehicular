@@ -14,7 +14,9 @@ import { ContratanteService } from './contratante.service';
     MongooseModule.forFeature([
       {
         name: Contratante.name,
-        schema: ContratanteSchema,
+        schema: ContratanteSchema.set('toJSON', {
+          transform: (_, ret) => { delete ret.__v; return ret; }
+        }),
       },
     ])
   ],

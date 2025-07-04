@@ -5,7 +5,7 @@ import { Contratante } from './contratante.entity';
 import { Vehiculo } from './vehiculo.entity';
 
 
-@Schema({ versionKey: false })
+@Schema()
 export class Cotizador extends Document {
   @Prop({
     type: Contratante,

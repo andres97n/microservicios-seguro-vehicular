@@ -2,26 +2,25 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { Vehiculo } from '../entities/vehiculo.entity';
-import { CreateVehiculoDto } from './dto/create-vehiculo.dto';
 import { handleExceptions } from 'src/common/helpers/exceptions.helper';
-// import { CreateContranteDto } from './dto/create-contratante.dto';
+import { Cobertura } from '../entities/cobertura.entity';
+import { CreateCoberturaDto } from './dto/create-cobertura.dto';
 
 @Injectable()
-export class VehiculoService {
+export class CoberturaService {
 
   constructor(
-    @InjectModel( Vehiculo.name ) 
-    private readonly vehiculoModel: Model<Vehiculo>,
+    @InjectModel( Cobertura.name ) 
+    private readonly coberturaModel: Model<Cobertura>,
   ) {}
 
-  async create(createVehiculoDto: CreateVehiculoDto) {
-    try {
-      console.log('createVehiculoDto', createVehiculoDto);
+  async create(createCoberturaDto: CreateCoberturaDto) {
+    // createCoberturaDto.name = createCoberturaDto.name.toLocaleLowerCase();
 
-      const vehiculo = await this.vehiculoModel.create( createVehiculoDto );
-      return vehiculo;
-      
+    try {
+      const cobertura = await this.coberturaModel.create( createCoberturaDto );
+      return cobertura;
+
     } catch (error) {
       handleExceptions( error );
     }
