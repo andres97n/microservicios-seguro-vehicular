@@ -32,7 +32,7 @@ export class CreateContranteDto {
 
   @Transform(({ value }) => {
     if (typeof value !== 'string') return value;
-    const [day, month, year] = value.split('/');
+    const [year, month, day] = value.split('-');
     return new Date(+year, +month - 1, +day);
   })
   @IsDate({ message: 'fechaNacimiento debe ser una fecha válida' })

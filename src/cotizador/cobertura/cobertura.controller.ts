@@ -1,8 +1,10 @@
 import { Controller, Get, Post, Body,Param, } from '@nestjs/common';
 import { CoberturaService } from './cobertura.service';
 import { CreateCoberturaDto } from './dto/create-cobertura.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 
+@ApiTags('Coberturas')
 @Controller('cobertura')
 export class CoberturaController {
   constructor(private readonly coberturaService: CoberturaService) {}

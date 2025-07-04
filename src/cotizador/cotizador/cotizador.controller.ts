@@ -1,7 +1,10 @@
 import { Controller, Get, Param, Delete, Post, Body } from '@nestjs/common';
 import { CotizadorService } from './cotizador.service';
 import { CreateCotizadorDto } from './dto/create-cotizador.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('Cotizadores')
 @Controller('cotizador')
 export class CotizadorController {
   constructor(private readonly cotizadorService: CotizadorService) {}

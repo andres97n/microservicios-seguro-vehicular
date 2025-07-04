@@ -1,7 +1,9 @@
 import { Controller, Get, Post, Body,Param, } from '@nestjs/common';
 import { ContratanteService } from './contratante.service';
 import { CreateContranteDto } from './dto/create-contratante.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Contratantes')
 @Controller('contratante')
 export class ContratanteController {
   constructor(private readonly cotizadorService: ContratanteService) {}

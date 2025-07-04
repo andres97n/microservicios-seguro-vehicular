@@ -1,8 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-@Schema({ versionKey: false })
+@Schema()
 export class Contratante extends Document {
+  
   @Prop({
     type: String,
     required: false,
@@ -46,7 +47,7 @@ export class Contratante extends Document {
     required: true,
     trim: true,
      minlength: 5,
-      index: { unique: true, sparse: true },
+      // index: { unique: true, sparse: true },
     // unique: true,
   })
   identificationNumber: string;

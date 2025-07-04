@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 
 import { Cotizador } from '../entities/cotizador.entity';
 import { CreateCotizadorDto } from './dto/create-cotizador.dto';
-import { handleExceptions } from 'src/common/helpers/exceptions.helper';
+import { handleExceptions } from 'src/common/helpers/';
 import { UpdateCotizadorDto } from './dto/update-cotizador.dto';
 import { getDtoContratante, getDtoCotizador, getDtoVehiculo } from 'src/common/helpers/dto.helper';
 import { Vehiculo } from '../entities/vehiculo.entity';
@@ -50,7 +50,7 @@ export class CotizadorService {
   }
 
   findAll() {
-    return `This action returns all cotizador`;
+    return this.cotizadorModel.find();
   }
 
   findOne(id: number) {

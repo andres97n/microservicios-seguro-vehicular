@@ -14,9 +14,7 @@ import { VehiculoService } from './vehiculo.service';
     MongooseModule.forFeature([
       {
         name: Vehiculo.name,
-        schema: VehiculoSchema.set('toJSON', {
-          transform: (_, ret) => { delete ret.__v; return ret; }
-        }),
+        schema: VehiculoSchema
       },
     ])
   ],
