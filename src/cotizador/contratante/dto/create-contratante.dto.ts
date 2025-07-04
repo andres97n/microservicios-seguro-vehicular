@@ -10,7 +10,7 @@ export class CreateContranteDto {
   segundoNombre?: number;
 
   @IsString()
-  primerApellido?: number;
+  primerApellido: number;
 
   @IsString()
   @IsOptional()
